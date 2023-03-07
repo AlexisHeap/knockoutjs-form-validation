@@ -1,7 +1,15 @@
 function createAccountViewModel() {
     var self = this;
 
-    self.firstName = ko.observable("Alexis");
+    self.firstName = ko.observable("Alexis").extend({
+        validation: {
+            message: 'Please enter at least 2 characters',
+            validator: function (value) {
+                return value.length > 1
+            }
+        }
+        /* validation takes an object and returns it into the UI*/
+    })
 
     self.firstName.subscribe(function (newValue) {
         console.log('new value', newValue)
@@ -13,7 +21,7 @@ function createAccountViewModel() {
             firstName: self.firstName()
         }
         console.log(payload) 
-        // when i clicked the continue button it must send a response with firstNam0e
+        
     }
 };
 

@@ -5,17 +5,16 @@
     <div class="card-section">
       <h2>Create account</h2>
       <p>Enter your name and details to get that tail wagging</p>
-      <form>     <!-- FORM -->
+      <form data-bind="submit: handleSubmit">     <!-- FORM -->
 
         <div class="field"> <!-- 1ST FIELD -->
           <label for="first-name">First Name*</label>
           <input data-bind="value: firstName" type="text" id="first-name">
-        </div>
+        </div>m
 
         <div class="field"> <!-- 2ND FIELD -->
           <label for="email">Email*</label>
           <input placeholder="you@email.com" id="email" type="text">
-          <!-- The placeholder attribute specifies a short hint that describes the expected value of an input field (e.g. a sample value or a short description of the expected format). -->
         </div>
 
         <div class="field"> <!-- 3RD FIELD -->
@@ -38,6 +37,8 @@
     </div> <!-- END DIV CARD SECTION -->
     <body>
       <script type="text/javascript" src="../knockout-3.5.1.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout-validation/2.0.4/knockout.validation.min.js"></script>
+      <!-- Adding a new library to add a new method -->
       <script type="text/javascript" src="js/app.js"></script>
       <link rel="stylesheet" href="css/stylesheet.css">
     </body>
