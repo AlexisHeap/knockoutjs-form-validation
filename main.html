@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <div id="knockout-app" class="card"> <!-- HERE THE PROJECT STARTS -->
+    <header>Alexis Company Inc</header>
+    <div class="card-section">
+      <h2>Create account</h2>
+      <p>Enter your name and details to get that tail wagging</p>
+      <form>     <!-- FORM -->
+
+        <div class="field"> <!-- 1ST FIELD -->
+          <label for="first-name">First Name*</label>
+          <input data-bind="value: firstName" type="text" id="first-name">
+        </div>
+
+        <div class="field"> <!-- 2ND FIELD -->
+          <label for="email">Email*</label>
+          <input placeholder="you@email.com" id="email" type="text">
+          <!-- The placeholder attribute specifies a short hint that describes the expected value of an input field (e.g. a sample value or a short description of the expected format). -->
+        </div>
+
+        <div class="field"> <!-- 3RD FIELD -->
+          <label for="subscription">Subscription*</label>
+          <div class="select-container">
+            <select id="subscription">
+              <option value="standard">Standard</option>
+              <option value="pro">Pro</option>
+              <option value="superPro">Super Pro</option>
+            </select>
+            <svg class="select_arrow" version="1.1" xmlns="http://www.w3.org/2000/svg" width="30" viewBox="0 0 768 768">
+              <path fill="#222" d="M223.5 319.5h321l-160.5 160.5z"><path>
+            </svg>
+          </div> <!-- END SELECT CONTAINER -->
+        </div>
+
+        <input type="submit" value="Continue">
+
+      </form> <!-- END FORM --> 
+    </div> <!-- END DIV CARD SECTION -->
+    <body>
+      <script type="text/javascript" src="../knockout-3.5.1.js"></script>
+      <script type="text/javascript" src="js/app.js"></script>
+      <link rel="stylesheet" href="css/stylesheet.css">
+    </body>
+    <footer>
+      <span>Have a tail wagging day!</span>
+    </footer>
+  </div>
+</html>
