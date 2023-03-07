@@ -2,19 +2,26 @@
 <html>
   <div id="knockout-app" class="card"> <!-- HERE THE PROJECT STARTS -->
     <header>Alexis Company Inc</header>
-    <div class="card-section">
+
+    <div class="card-section" style="display:none;" data-bind="visible: hasBeenSubmitted()">
+      <h2>Thank you for submitting the form!</h2>
+      <p>Please check your email for a confirmation link.</p>
+    </div>
+    <!-- It was added due to a message when the user complete the form -->
+    <div class="card-section" data-bind= "visible: !hasBeenSubmitted()">
       <h2>Create account</h2>
       <p>Enter your name and details to get that tail wagging</p>
       <form data-bind="submit: handleSubmit">     <!-- FORM -->
-
         <div class="field"> <!-- 1ST FIELD -->
           <label for="first-name">First Name*</label>
-          <input data-bind="value: firstName" type="text" id="first-name">
-        </div>m
+          <input data-bind="value: firstName, css: { error: emailAddress.error() && emailAddress.isModified()}" type="text" id="first-name">
+          <!-- Adding css to paint in red the border of the Fisrt Name box -->
+        </div>
 
         <div class="field"> <!-- 2ND FIELD -->
           <label for="email">Email*</label>
-          <input data-bind="value: emailAddress" placeholder="you@email.com" id="email" type="text">
+          <input data-bind="value: emailAddress, css: { error: emailAddress.error() && emailAddress.isModified()}" placeholder="you@email.com" id="email" type="text">
+          <!-- Adding css to paint in red the border of the Email box -->
         </div>
 
         <div class="field"> <!-- 3RD FIELD -->

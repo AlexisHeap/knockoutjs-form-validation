@@ -4,12 +4,6 @@ function createAccountViewModel() {
     self.firstName = ko.observable("Alexis").extend({
         required: true,
         minLenght: 2,
-        /* validation: {
-            message: 'Please enter at least 2 characters',
-            validator: function (value) {
-                return value.length > 1
-            }
-        } */
     });
 
     self.emailAddress = ko.observable("").extend({
@@ -17,6 +11,7 @@ function createAccountViewModel() {
         email: true
     })
     self.subscriptionType = ko.observable("pro")
+    self.hasBeenSubmitted = ko.observable(false)
 
     self.handleSubmit = function () {
         var errors = ko.validation.group(self);
@@ -24,7 +19,8 @@ function createAccountViewModel() {
             errors.showAllMessages();
             return;
         };
-
+        self.hasBeenSubmitted(true)
+        
         console.log('SUBMIT THE FORM')
         var payload = {
             firstName: self.firstName(),
@@ -34,6 +30,8 @@ function createAccountViewModel() {
         console.log(payload) 
         
     }
+    
+    
 };
 
 const knockoutApp = document.querySelector("#knockout-app");
