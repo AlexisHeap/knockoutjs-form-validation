@@ -2,15 +2,18 @@ function createAccountViewModel() {
     var self = this;
 
     self.firstName = ko.observable("Alexis").extend({
-        validation: {
+        required: true,
+        minLenght: 2,
+        /* validation: {
             message: 'Please enter at least 2 characters',
             validator: function (value) {
                 return value.length > 1
             }
-        }
+        } */
     });
 
     self.emailAddress = ko.observable("").extend({
+        required: true,
         email: true
     })
     self.firstName.subscribe(function (newValue) {
@@ -20,7 +23,7 @@ function createAccountViewModel() {
     self.handleSubmit = function () {
         var errors = ko.validation.group(self);
         if (errors().length > 0) {
-            console.log("There are errors")
+            errors.showAllMessages();
             return;
         };
 
