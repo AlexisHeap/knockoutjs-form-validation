@@ -16,9 +16,7 @@ function createAccountViewModel() {
         required: true,
         email: true
     })
-    self.firstName.subscribe(function (newValue) {
-        console.log('new value', newValue)
-    })
+    self.subscriptionType = ko.observable("pro")
 
     self.handleSubmit = function () {
         var errors = ko.validation.group(self);
@@ -29,7 +27,9 @@ function createAccountViewModel() {
 
         console.log('SUBMIT THE FORM')
         var payload = {
-            firstName: self.firstName()
+            firstName: self.firstName(),
+            emailAddress: self.emailAddress(),
+            subscriptionType: self.subscriptionType()
         }
         console.log(payload) 
         
