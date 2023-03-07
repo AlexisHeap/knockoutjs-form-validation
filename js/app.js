@@ -8,14 +8,22 @@ function createAccountViewModel() {
                 return value.length > 1
             }
         }
-        /* validation takes an object and returns it into the UI*/
-    })
+    });
 
+    self.emailAddress = ko.observable("").extend({
+        email: true
+    })
     self.firstName.subscribe(function (newValue) {
         console.log('new value', newValue)
     })
 
     self.handleSubmit = function () {
+        var errors = ko.validation.group(self);
+        if (errors().length > 0) {
+            console.log("There are errors")
+            return;
+        };
+
         console.log('SUBMIT THE FORM')
         var payload = {
             firstName: self.firstName()

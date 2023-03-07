@@ -14,7 +14,7 @@
 
         <div class="field"> <!-- 2ND FIELD -->
           <label for="email">Email*</label>
-          <input placeholder="you@email.com" id="email" type="text">
+          <input data-bind="value: emailAddress" placeholder="you@email.com" id="email" type="text">
         </div>
 
         <div class="field"> <!-- 3RD FIELD -->
@@ -38,7 +38,6 @@
     <body>
       <script type="text/javascript" src="../knockout-3.5.1.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout-validation/2.0.4/knockout.validation.min.js"></script>
-      <!-- Adding a new library to add a new method -->
       <script type="text/javascript" src="js/app.js"></script>
       <link rel="stylesheet" href="css/stylesheet.css">
     </body>
